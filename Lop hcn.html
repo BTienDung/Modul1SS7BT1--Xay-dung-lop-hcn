@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="color: #fab169"></canvas>
+</body>
+    <script>
+        function Rectangle(dai,rong) {
+            this.dai = dai;
+            this.rong = rong;
+            
+            this.getDai = function () {
+                return this.dai;
+            };
+            this.setDai = function (dai) {
+                this.dai = dai;
+            };
+            this.getRong = function () {
+                return this.rong;
+            };
+            this.setRong = function (rong) {
+                this.rong = rong;
+            };
+            this.getDienTich = function () {
+                return this.dai*this.rong;
+            };
+            this.getChuvi = function () {
+                return (this.dai + this.rong)*2;
+            };
+        }
+
+        let rec = new Rectangle(1,1);
+        rec.setDai(500);
+        let dai = rec.getDai();
+        rec.setRong(500);
+        let rong = rec.getRong();
+        console.log(dai+""+rong);
+        let dientich = rec.getDienTich();
+        let chuvi = rec.getChuvi();
+        alert( 'Diện tích: '+dientich+" "+ 'Chu vi: '+chuvi);
+
+        function createRectangle() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            ctx.beginPath();
+
+            ctx.fillRect(100,100,dai,rong);
+
+        }
+        createRectangle();
+    </script>
+</html>
